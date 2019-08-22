@@ -1,0 +1,17 @@
+{
+  "name": "gatsby-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
