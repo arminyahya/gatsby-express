@@ -35,6 +35,7 @@ var getMovie = function(args) {
 			return movie.id == id;
 	})[0];
 }
+
 var getMovies = function(args, req) {
 	if(!req.isAuth) {
 	

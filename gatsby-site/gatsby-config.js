@@ -1,3 +1,6 @@
+const dotenv = require("dotenv")
+dotenv.config()
+
 module.exports = {
 	siteMetadata: {
 		title: `Gatsby With Node`,
@@ -24,7 +27,7 @@ module.exports = {
 				background_color: `#663399`,
 				theme_color: `#663399`,
 				display: `minimal-ui`,
-				icon: `src/images/gatsby-icon.png`
+				icon: `src/images/gatsby-icon.png`,
 			},
 		},
 		{
@@ -34,7 +37,8 @@ module.exports = {
 				fieldName: "movie",
 				url: "http://localhost:4000/graphql",
 				headers: {
-					Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTU2NjQ1MTA0MCwiZXhwIjoxNTY2NDU0NjQwfQ.0L8S0hC5ZzQM8KP_eP1_KuglA5IdcsaxObrD8Ev-PA4`,
+					username: process.env.UserName,
+					password: process.env.Password,
 				},
 			},
 		},
