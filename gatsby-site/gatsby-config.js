@@ -37,7 +37,7 @@ module.exports = {
 				fieldName: "movie",
 				url: "http://localhost:4000/graphql",
 				headers: {
-					username: process.env.UserName,
+					username: process.env.User_Name,
 					password: process.env.Password,
 				},
 			},

@@ -1,13 +1,11 @@
 var { buildSchema } = require('graphql');
 var jwt = require('jsonwebtoken');
 var { MoviesList } = require('./movie-list');
-var { UserList } = require('./user-list');
 
 var schema = buildSchema(`
 	type Query {
 		movieInfo(id: Int!): Movie
 		movieList(rate: String): [Movie]
-		login(username: String, password: String): AuthData
 	},
 	type Movie {
 		id: Int
@@ -21,11 +19,6 @@ var schema = buildSchema(`
 		password: String
 	}
 
-	type AuthData {
-		userId: Int
-		token: String
-		tokenExpiration: Int
-	}
 `);
 
 
@@ -49,26 +42,10 @@ var getMovies = function(args, req) {
 	}
 }
 
-var login =  function({username, password}) {
-
-	const user = UserList.find((user) => user.username === username);
-	if(!user) {
-		throw new Error('User does not exist!');
-	}
-
-	if(user.password !== password) {
-		throw new Error('Password is incorrect!');
-
-	}
-	const token = jwt.sign({userId: user.id}, 'secretkey',{
-	expiresIn: '1h'});
-	return { userId: 1, token: token, tokenExpiration: 1};
-}
 
 var root = {
 	movieInfo: getMovie,
 	movieList: getMovies,
-	login: login
 };
 
 module.exports = {
