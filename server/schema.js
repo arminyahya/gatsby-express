@@ -1,5 +1,4 @@
 var { buildSchema } = require('graphql');
-var jwt = require('jsonwebtoken');
 var { MoviesList } = require('./movie-list');
 
 var schema = buildSchema(`
